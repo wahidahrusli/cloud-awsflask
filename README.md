@@ -9,15 +9,19 @@ Team Members:
 ----------------------
 ## Steps to run in cmd
 
-1. ``venv\Scripts\activate``
+1. Do ``aws configure``
 
-2. ``set FLASK_APP=app.py``
+2. ``venv\Scripts\activate``
 
-3. in [.env](https://github.com/wahidahrusli/cloud-awsflask/blob/master/.env), insert S3 access key and secret access key
+3. ``set FLASK_APP=app.py``
+
+4. in [.env](https://github.com/wahidahrusli/cloud-awsflask/blob/master/.env), insert S3 access key and secret access key
 ```
   set S3_KEY= Access Key Here
   set S3_SECRET= Secret Key Here
 ```
+
+5. To run the flask application: ``flask run``
 
 ## Snapshots
 
