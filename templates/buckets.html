@@ -1,0 +1,64 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}List of buckets{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12-xs">
+        <h3>Bucket List</h3>
+        <hr>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <p class="bg-info" style="padding: 15px">
+                {% for message in messages %}
+                    {{ message }} <br>
+                {% endfor %}
+            </p>
+        {% endif %}
+      {% endwith %}
+
+        <form action="{{ url_for('addbucket') }}" method="post">
+          <label for="bucket_name">Bucket Name: </label>
+          <input type="text" name="bucket_name">
+          <button type="hiu" name="submit" class="btn btn-primary">Create bucket</button>
+        </form>
+
+        <hr>
+
+        <table class="table table-striped">
+          <tr>
+            <th>Bucket Name</th>
+            <th>Created</th>
+            <th></th>
+          </tr>
+
+          {% for bucket in buckets %}
+          <tr>
+            <td>
+              <form class="select-bucket" action="{{ url_for('buckets') }}" method="post">
+                <input type="hidden" name="bucket" value="{{ bucket['Name'] }}">
+                <button type="submit" class="btn btn-primary btn-sm">{{ bucket['Name'] }}</button>          
+              </form>              
+            </td>
+            <td>{{ bucket['CreationDate'] | datetimeformat }}</td>
+            <td>
+              <form class="delete-form" action="{{ url_for('deletebucket') }}" method="POST">
+                <input type="hidden" name="bucket_name" value="{{ bucket['Name'] }}">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

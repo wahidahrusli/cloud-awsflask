@@ -1,0 +1,96 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}List of items{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12-xs">
+                <h3>Table: {{ table.name }}</h3>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <p class="bg-info" style="padding: 15px">
+                            {% for message in messages %}
+                                {{ message }} <br>
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+                {% endwith %}
+              
+                <hr>
+
+                <p>Filter:</p>
+                <form action="{{ url_for('table') }}" method="post">
+                    <label for="attributes">Attributes: </label>
+                    <select name="attributes" id="attributes">
+                        <option value="id">ID</option>
+                        <option value="name">Name</option>
+                        <option value="display">Display</option>
+                        <option value="cpu">CPU</option>
+                        <option value="ram">RAM</option>
+                        <option value="battery">Battery</option>
+                        <option value="dimensions">Dimensions</option>
+                        <option value="weight">Weight</option>
+                    </select>
+                    <input type="text" name="filter_word">
+                    <button type="submit" class="btn btn-primary btn-sm">Filter</button>
+                </form>
+                <hr>
+                
+                <table class="table table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Display</th>
+                        <th>CPU</th>
+                        <th>RAM</th>
+                        <th>Battery</th>
+                        <th>Dimensions</th>
+                        <th>Weight</th>
+                        <th></th>
+                    </tr>
+
+                    <tr>
+                        <form action="{{ url_for('additem') }}" method="post">
+                            <td><input type="number" name="id"></td>
+                            <td><input type="text" name="name"></td>
+                            <td><input type="text" name="display"></td>
+                            <td><input type="text" name="CPU"></td>
+                            <td><input type="text" name="RAM"></td>
+                            <td><input type="text" name="battery"></td>
+                            <td><input type="text" name="dimensions"></td>
+                            <td><input type="text" name="weight"></td>
+                            <td><button type="submit" class="btn btn-primary btn-sm">Add</button></td>
+                        </form>
+                    </tr>
+
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.display }}</td>
+                        <td>{{ item.CPU }}</td>
+                        <td>{{ item.RAM }}</td>
+                        <td>{{ item.battery }}</td>
+                        <td>{{ item.dimensions }}</td>
+                        <td>{{ item.weight }}</td>
+                        <td>
+                            <form class="delete-form" action="{{ url_for('deleteitem') }}" method="POST">
+                                <input type="hidden" name="id" value="{{ item.id }}">
+                                <input type="hidden" name="name" value="{{ item.name }}">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

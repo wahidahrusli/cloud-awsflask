@@ -1,0 +1,66 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}List of buckets{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12-xs">
+                <h3>Table List</h3>
+
+                <hr>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <p class="bg-info" style="padding: 15px">
+                        {% for message in messages %}
+                            {{ message }} <br>
+                        {% endfor %}
+                        </p>
+                    {% endif %}
+                {% endwith %}
+                <form class="add-form" action="{{ url_for('addtable') }}" method="POST">
+                    <label for="table_name">Table name:</label>
+                    <input type="text" name="table_name">
+                    <button type="submit" class="btn btn-primary">Create Table</button>
+                </form>
+
+                <hr>
+                
+                <table class="table table-striped">
+                    <tr>
+                        <th>Table Name</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    {% for table in tables %}
+                    <tr>
+                        <td>
+                            {{ table }}
+                        </td>
+                        <td>
+                            <form action="{{ url_for('dynamodb') }}" method="post">
+                                <input type="hidden" name="table" value="{{ table }}">
+                                <button type="submit" class="btn btn-primary btn-sm">Open Table</button>          
+                            </form>                                                                                                                                              
+                        </td>
+                        <td>
+                            <form class="delete-form" action="{{ url_for('deletetable') }}" method="POST">
+                                <input type="hidden" name="table_name" value="{{ table }}">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
