@@ -34,7 +34,7 @@ Team Members:
 ![DynamoDB - Table List](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/dynamodb-addtable.png)
 
 ### 5. DynamoDB - Item List
-![DynamoDB - Item List](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/files.png)
+![DynamoDB - Item List](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/table.png
 
 ### 6. DynamoDB - Item List with Filter
 ![DynamoDB - Filter](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/filter.png)
