@@ -1,5 +1,5 @@
 # cloud-awsflask
-Cloud Computing Assignment 1
+### Cloud Computing Assignment 1
 
 Team Members:
 1. Mohamad Syahmin Bin Ahmad Badardin 24610
