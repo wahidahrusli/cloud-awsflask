@@ -15,20 +15,20 @@ in [.env](https://github.com/wahidahrusli/cloud-awsflask/blob/master/.env), inse
 
 ## Snapshots
 
-### Browser
+### 1. Browser
 ![Browser](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/browser.png)
 
-### S3 - Bucket List
+### 2. S3 - Bucket List
 ![S3 - Bucket List](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/buckets.png)
 
-### S3 - Object List
+### 3. S3 - Object List
 ![S3 - Object List](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/files.png)
 
-### DynamoDB - Table List
+### 4. DynamoDB - Table List
 ![DynamoDB - Table List](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/dynamodb-addtable.png)
 
-### DynamoDB - Item List
+### 5. DynamoDB - Item List
 ![DynamoDB - Item List](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/files.png)
 
-### DynamoDB - Item List with Filter
+### 6. DynamoDB - Item List with Filter
 ![DynamoDB - Filter](https://github.com/wahidahrusli/cloud-awsflask/blob/master/snapshots/filter.png)
