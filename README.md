@@ -7,7 +7,13 @@ Team Members:
 3. Amirah Wahidah binti Mohd Rusli 24645
 
 ----------------------
-in [.env](https://github.com/wahidahrusli/cloud-awsflask/blob/master/.env), insert S3 access key and secret access key
+## Steps to run in cmd
+
+1. ``venv\Scripts\activate``
+
+2. ``set FLASK_APP=app.py``
+
+3. in [.env](https://github.com/wahidahrusli/cloud-awsflask/blob/master/.env), insert S3 access key and secret access key
 ```
   set S3_KEY= Access Key Here
   set S3_SECRET= Secret Key Here
